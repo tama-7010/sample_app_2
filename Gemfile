@@ -27,6 +27,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
 end
 
 group :production do
