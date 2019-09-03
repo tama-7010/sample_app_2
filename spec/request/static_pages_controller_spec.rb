@@ -6,6 +6,11 @@ describe StaticPagesController do
   end
 
   describe 'static pages', type: :request do
+    it 'shouldget root' do
+      get root_url
+      expect(response).to have_http_status(:ok)
+    end
+
     it 'should get home' do
       get static_pages_home_url
       expect(response).to have_http_status(:ok)
