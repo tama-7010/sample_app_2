@@ -23,5 +23,11 @@ describe StaticPagesController do
       expect(response).to have_http_status(:ok)
       expect(response.body).to include("About | #{@base_title}")
     end
+
+    it 'should get contact' do
+      get static_pages_contact_url
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Contact | #{@base_title}")
+    end
   end
 end
