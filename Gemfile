@@ -28,6 +28,8 @@ group :test do
   gem 'chromedriver-helper'
   gem 'rspec-rails', '~> 3.7'
   gem 'rails-controller-testing'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 group :production do
