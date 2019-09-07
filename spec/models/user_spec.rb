@@ -14,9 +14,18 @@ describe User, type: :feature do
     expect(@user.valid?).to be_falsy
   end
 
+  it 'should be false if name have 51 charcters or more' do
+    @user.name = "a" * 51
+    expect(@user.valid?).to be_falsy
+  end
+
   it 'should be false if email is not present' do
     @user.email = "   "
     expect(@user.valid?).to be_falsy
   end
 
+  it 'should be false if email have 256 charcters or more' do
+    @user.email = "a" * 244 + "@example.com"
+    expect(@user.valid?).to be_falsy
+  end
 end
