@@ -9,7 +9,7 @@ describe 'Users Signup Test', type: :request do
 
     it 'should not create new User' do
       expect do
-        post users_path, params: {
+        post signup_path, params: {
           user: {
             name: '',
             email: 'user@invalid',
