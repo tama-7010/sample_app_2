@@ -2,11 +2,6 @@ require 'rails_helper'
 
 describe 'Users Signup Test', type: :request do
   describe 'invalid signup information' do
-    it 'should get users/new as signup page' do
-      get signup_path
-      expect(request).to render_template('users/new')
-    end
-
     it 'should not create new User' do
       expect do
         post signup_path, params: {
@@ -18,6 +13,24 @@ describe 'Users Signup Test', type: :request do
           }
         }
       end.to change { User.count }.by(0)
+    end
+  end
+
+  describe "valid signup information" do
+    it 'should be create new User' do
+      expect do
+        post signup_path, params: {
+          user: {
+            name: 'Example User',
+            email: 'user@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          }
+        }
+      end.to change { User.count }.by(1)
+      expect(response).to redirect_to({ action: :show, id: assigns(:user).id })
+      follow_redirect!
+      expect(response.body).to include('alert alert-success')
     end
   end
 end
