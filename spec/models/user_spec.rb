@@ -71,4 +71,8 @@ describe User, type: :feature do
     @user.password = @user.password_confirmation = "a" * 5
     expect(@user).not_to be_valid
   end
+
+  it 'should return false for a user with nil digest when authenticated?' do
+    expect(@user).not_to be_authenticated('')
+  end
 end
