@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'users session', type: :feature do
   before do
-    @user = FactoryBot.create(:user)
+    @user = FactoryBot.create(:michael)
   end
 
   it 'login with invalid information' do
