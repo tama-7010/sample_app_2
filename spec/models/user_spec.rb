@@ -73,6 +73,6 @@ describe User, type: :feature do
   end
 
   it 'should return false for a user with nil digest when authenticated?' do
-    expect(@user).not_to be_authenticated('')
+    expect(@user).not_to be_authenticated(:remember, '')
   end
 end
